@@ -1,0 +1,18 @@
+<UserControl x:Class="GameVaultRemote.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <StackPanel Margin="20" MaxWidth="500" HorizontalAlignment="Left">
+    <TextBlock Text="Server URL (e.g. https://vault.example.com)" />
+    <TextBox Text="{Binding Settings.ServerUrl}" Margin="0,2,0,10" />
+    <Button Content="Authenticate (SSO)" Click="Sso_Click" HorizontalAlignment="Left" Padding="12,4" Margin="0,0,0,10" />
+    <TextBlock Text="Username (only if not using SSO)" />
+    <TextBox Text="{Binding Settings.Username}" Margin="0,2,0,10" />
+    <TextBlock Text="Password" />
+    <PasswordBox x:Name="Pw" PasswordChanged="Pw_Changed" Margin="0,2,0,10" />
+    <TextBlock Text="Install folder" />
+    <DockPanel Margin="0,2,0,10">
+      <Button DockPanel.Dock="Right" Content="Browse..." Click="Browse_Click" Padding="12,4" Margin="6,0,0,0" />
+      <TextBox x:Name="Root" Text="{Binding Settings.InstallRoot, UpdateSourceTrigger=PropertyChanged}" />
+    </DockPanel>
+  </StackPanel>
+</UserControl>
